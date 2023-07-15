@@ -1,0 +1,95 @@
+<!-- <h1>Tabla creada sin material</h1>
+<table>
+  <thead>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>telefono</th>
+    <th>email</th>
+    <th>fecha Creacion</th>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let estudiante of estudiantes">
+      <td>{{estudiante.estudiante_nombres}}</td>
+      <td>{{estudiante.estudiante_apellidos}}</td>
+      <td>{{estudiante.estudiante_celular}}</td>
+      <td>{{estudiante.estudiante_correo}}</td>
+      <td>{{estudiante.estudiante_fechaCreacion}}</td>
+    </tr>
+  </tbody>
+</table> -->
+
+
+<div class="contenedor"> 
+  <h1>Consultar Estudiantes</h1>
+
+  <div class="div_botones">
+    <button mat-raised-button color="primary" (click)="abrirDialogoRegistro()">Reguistro Estudiantes</button>
+  </div>
+</div>
+
+
+
+<div class="div_table">
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let estudiante">{{estudiante.estudiante_id}}</td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="nombres">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let estudiante">{{estudiante.estudiante_nombres}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="apellidos">
+      <th mat-header-cell *matHeaderCellDef>Apellidos</th>
+      <td mat-cell *matCellDef="let estudiante">{{estudiante.estudiante_apellidos}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="celular">
+      <th mat-header-cell *matHeaderCellDef>Celular</th>
+      <td mat-cell *matCellDef="let estudiante">{{estudiante.estudiante_celular}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="correo">
+      <th mat-header-cell *matHeaderCellDef>Correo</th>
+      <td mat-cell *matCellDef="let estudiante">{{estudiante.estudiante_correo}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="fechaCreacion">
+      <th mat-header-cell *matHeaderCellDef>fechaCreacion</th>
+      <td mat-cell *matCellDef="let estudiante">{{estudiante.estudiante_fechaCreacion}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let estudiante">
+
+        <button mat-icon-button matTooltip="Ver Estudiante" (click)="verEstudiante(estudiante.estudiante_id)">
+          <mat-icon fontIcon="visibility" style="color: blue"></mat-icon>
+        </button>
+
+        <button mat-icon-button matTooltip="Editar Estudiante"
+          (click)="abrirDialogEstudiante(estudiante.estudiante_id)">
+          <mat-icon fontIcon="edit" style="color: greenyellow"></mat-icon>
+        </button>
+
+        <button mat-icon-button matTooltip="Eliminar Estudiante"
+          (click)="inhabilitarEstudiante(estudiante.estudiante_id)">
+          <mat-icon fontIcon="delete" style="color: crimson"></mat-icon>
+        </button>
+
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+  </mat-paginator>
+
+</div>

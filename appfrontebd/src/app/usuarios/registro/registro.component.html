@@ -1,0 +1,54 @@
+<mat-card>
+
+  <mat-card-header>
+    <mat-card-title>Registro de Usuarios</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="registroForm" class="registro-from" (submit)="onSubmit">
+
+      <mat-label>Nombre</mat-label>
+      <mat-form-field class="registro-from-filed">
+        <input matInput formControlName="nombre" placeholder="Nombre" type="text">
+        <mat-error *ngIf="registroForm.controls['nombre']?.errors?.['required']">El nombre es requerido</mat-error>
+      </mat-form-field>
+
+      <mat-label>Apellido</mat-label>
+      <mat-form-field class="registro-from-filed">
+        <input matInput formControlName="apellido" placeholder="Apellido" type="text">
+        <mat-error *ngIf="registroForm.controls['apellido']?.errors?.['required']">El apellido es requerido</mat-error>
+      </mat-form-field>
+
+      <mat-label>Email</mat-label>
+      <mat-form-field class="registro-from-filed">
+        <input matInput formControlName="email" placeholder="Email" type="email">
+        <mat-error *ngIf="registroForm.controls['email']?.errors?.['email']">Debe ser un email valido</mat-error>
+        <mat-error *ngIf="registroForm.controls['email']?.errors?.['required']">El email es requerido</mat-error>
+      </mat-form-field>
+
+      <mat-label>Edad</mat-label>
+      <mat-form-field class="registro-from-filed">
+        <input matInput formControlName="edad" placeholder="edad" type="text">
+        <mat-error *ngIf="registroForm.controls['edad']?.errors?.['required']">La edad es requerida</mat-error>
+        <mat-error *ngIf="registroForm.controls['edad']?.errors?.['min']">Debe ser mayor a 18 años</mat-error>
+        <mat-error *ngIf="registroForm.controls['edad']?.errors?.['max']">Debe ser menor a 99 años</mat-error>
+
+      </mat-form-field>
+
+      <mat-label>Contraseña</mat-label>
+      <mat-form-field class="registro-from-filed">
+        <input matInput formControlName="password" placeholder="Contraseña" type="password">
+        <mat-error *ngIf="registroForm.controls['password']?.errors?.['required']">La contraseña es
+          requerida</mat-error>
+        <mat-error *ngIf="registroForm.controls['password']?.errors?.['minlength']">Debe tener almenos 6
+          caracteres</mat-error>
+      </mat-form-field>
+
+      <div class="botonesRegistro">
+        <button mat-raised-button color="primary">Registrar Usuario</button>
+        <button mat-raised-button color="warn" routerLink="/login">Volver</button>
+      </div>
+
+    </form>
+  </mat-card-content>
+</mat-card>

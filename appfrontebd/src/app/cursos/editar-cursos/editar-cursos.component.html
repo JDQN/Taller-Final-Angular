@@ -1,0 +1,63 @@
+<h2 mat-dialog-title>Editar Curso</h2>
+<mat-dialog-content>
+  <form [formGroup]="editForm" (submit)="onSubmit()">
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre" placeholder="Nombre">
+      <mat-error *ngIf="editForm.controls['nombre'].errors?.['required']">Campo requerido</mat-error>
+      <mat-error *ngIf="editForm.controls['nombre'].errors?.['minlength']">Debe tener al menos 3 caracteres</mat-error>
+      <mat-error *ngIf="editForm.controls['nombre'].errors?.['maxlength']">Debe tener menos de 30 caracteres</mat-error>
+      <mat-error *ngIf="editForm.controls['nombre'].errors?.['pattern']">No se aceptan caracteres especiales</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Descripción</mat-label>
+      <input matInput formControlName="descripcion" placeholder="Descripción">
+      <mat-error *ngIf="editForm.controls['descripcion'].errors?.['required']">Campo requerido</mat-error>
+      <mat-error *ngIf="editForm.controls['descripcion'].errors?.['minlength']">Debe tener al menos 3
+        caracteres</mat-error>
+      <mat-error *ngIf="editForm.controls['descripcion'].errors?.['maxlength']">Debe tener menos de 100
+        caracteres</mat-error>
+      <mat-error *ngIf="editForm.controls['descripcion'].errors?.['pattern']">No se aceptan caracteres
+        especiales</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Cupo</mat-label>
+      <input matInput formControlName="cupo" placeholder="Cupo" type="number">
+      <mat-error *ngIf="editForm.controls['cupo'].errors?.['required']">Campo requerido</mat-error>
+      <mat-error *ngIf="editForm.controls['cupo'].errors?.['minlength']">Debe tener al menos 1 caracteres</mat-error>
+      <mat-error *ngIf="editForm.controls['cupo'].errors?.['maxlength']">Debe tener menos de 2 caracteres</mat-error>
+      <mat-error *ngIf="editForm.controls['cupo'].errors?.['pattern']">Solo se aceptan números</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Horario</mat-label>
+      <input matInput formControlName="horario" placeholder="Horario">
+      <mat-error *ngIf="editForm.controls['horario'].errors?.['required']">Campo requerido</mat-error>
+      <mat-error *ngIf="editForm.controls['horario'].errors?.['minlength']">Debe tener al menos 3 caracteres</mat-error>
+      <mat-error *ngIf="editForm.controls['horario'].errors?.['maxlength']">Debe tener menos de 30
+        caracteres</mat-error>
+      <mat-error *ngIf="editForm.controls['horario'].errors?.['pattern']">Solo se aceptan letras, números, guiones y dos
+        puntos</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Profesor</mat-label>
+      <input matInput formControlName="profesor" placeholder="Profesor">
+      <mat-error *ngIf="editForm.controls['profesor'].errors?.['required']">Campo requerido</mat-error>
+      <mat-error *ngIf="editForm.controls['profesor'].errors?.['minlength']">Debe tener al menos 3
+        caracteres</mat-error>
+      <mat-error *ngIf="editForm.controls['profesor'].errors?.['maxlength']">Debe tener menos de 50
+        caracteres</mat-error>
+      <mat-error *ngIf="editForm.controls['profesor'].errors?.['pattern']">No se aceptan caracteres
+        especiales</mat-error>
+    </mat-form-field>
+
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close>Close</button>
+      <button mat-raised-button color="primary" type="submit">Guardar</button>
+    </mat-dialog-actions>
+  </form>
+</mat-dialog-content>

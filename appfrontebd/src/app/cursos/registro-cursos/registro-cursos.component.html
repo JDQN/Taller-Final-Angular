@@ -1,0 +1,62 @@
+<h2 mat-dialog-title>Registro Cursos</h2>
+
+<mat-dialog-content>
+
+  <form [formGroup]="registroForm" (submit)="onSubmit()">
+
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre" placeholder="Nombre" type="text">
+      <mat-error *ngIf="registroForm.controls['nombre']?.errors?.['required']">El nombre es requerido</mat-error>
+      <mat-error *ngIf="registroForm.controls['nombre']?.errors?.['minlength']">Minimo 3 caracteres</mat-error>
+      <mat-error *ngIf="registroForm.controls['nombre']?.errors?.['maxlength']">Maximo 30 caracteres</mat-error>
+      <mat-error *ngIf="registroForm.controls['nombre']?.errors?.['pattern']">Solo se aceptan letras</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Descripcion</mat-label>
+      <input matInput formControlName="descripcion" placeholder="Descripcion" type="text">
+      <mat-error *ngIf="registroForm.controls['descripcion']?.errors?.['required']">El nombre es requerido</mat-error>
+      <mat-error *ngIf="registroForm.controls['descripcion']?.errors?.['minlength']">Minimo 3 caracteres</mat-error>
+      <mat-error *ngIf="registroForm.controls['descripcion']?.errors?.['maxlength']">Maximo 30 caracteres</mat-error>
+      <mat-error *ngIf="registroForm.controls['descripcion']?.errors?.['pattern']">Solo se aceptan letras</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Cupo</mat-label>
+      <input matInput formControlName="cupo" placeholder="Cupo" type="text">
+      <mat-error *ngIf="registroForm.controls['cupo']?.errors?.['required']">El nombre es requerido</mat-error>
+      <mat-error *ngIf="registroForm.controls['cupo']?.errors?.['minlength']">Minimo 3 caracteres</mat-error>
+      <mat-error *ngIf="registroForm.controls['cupo']?.errors?.['maxlength']">Maximo 30 caracteres</mat-error>
+      <mat-error *ngIf="registroForm.controls['cupo']?.errors?.['pattern']">Solo se aceptan letras</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Horario</mat-label>
+      <input matInput formControlName="horario" placeholder="Horario" type="text">
+      <mat-error *ngIf="registroForm.controls['horario']?.errors?.['required']">El nombre es requerido</mat-error>
+      <mat-error *ngIf="registroForm.controls['horario']?.errors?.['minlength']">Minimo 3 caracteres</mat-error>
+      <mat-error *ngIf="registroForm.controls['horario']?.errors?.['maxlength']">Maximo 30 caracteres</mat-error>
+      <mat-error *ngIf="registroForm.controls['horario']?.errors?.['pattern']">Solo se aceptan letras</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Profesor</mat-label>
+      <input matInput formControlName="profesor" placeholder="profesor" type="text">
+      <mat-error *ngIf="registroForm.controls['profesor']?.errors?.['required']">El nombre es requerido</mat-error>
+      <mat-error *ngIf="registroForm.controls['profesor']?.errors?.['minlength']">Minimo 3 caracteres</mat-error>
+      <mat-error *ngIf="registroForm.controls['profesor']?.errors?.['maxlength']">Maximo 30 caracteres</mat-error>
+      <mat-error *ngIf="registroForm.controls['profesor']?.errors?.['pattern']">Solo se aceptan letras</mat-error>
+    </mat-form-field>
+
+    <mat-dialog-actions>
+      <button mat-raised-button mat-dialog-close color="warn">Cerrar</button>
+      <button mat-raised-button color="primary" type="submit">Guardar</button>
+    </mat-dialog-actions>
+
+  </form>
+</mat-dialog-content>

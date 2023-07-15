@@ -1,0 +1,60 @@
+<h2 mat-dialog-title>Editar estudiante</h2>
+
+<form [formGroup]="editForm" (submit)="onSubmit()">
+
+  <mat-dialog-content>
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Nombres</mat-label>
+      <input matInput formControlName="nombres" placeholder="Nombres" type="text">
+      <mat-error *ngIf="editForm.controls['nombres']?.errors?.['required']">El nombre es requerido</mat-error>
+      <mat-error *ngIf="editForm.controls['nombres']?.errors?.['minlength']">Minimo 3 caracteres</mat-error>
+      <mat-error *ngIf="editForm.controls['nombres']?.errors?.['maxlength']">Maximo 30 caracteres</mat-error>
+      <mat-error *ngIf="editForm.controls['nombres']?.errors?.['pattern']">Solo se aceptan letras</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Apellidos</mat-label>
+      <input matInput formControlName="apellidos" placeholder="Apellidos" type="text">
+      <mat-error *ngIf="editForm.controls['apellidos']?.errors?.['required']">El apellido es requerido</mat-error>
+      <mat-error *ngIf="editForm.controls['apellidos']?.errors?.['minlength']">Minimo 3 caracteres</mat-error>
+      <mat-error *ngIf="editForm.controls['apellidos']?.errors?.['maxlength']">Maximo 30 caracteres</mat-error>
+      <mat-error *ngIf="editForm.controls['apellidos']?.errors?.['pattern']">Solo se aceptan letras</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Celular</mat-label>
+      <input matInput formControlName="celular" placeholder="Numero Celular" type="number">
+      <mat-error *ngIf="editForm.controls['celular']?.errors?.['required']">El celular es requerido</mat-error>
+      <mat-error *ngIf="editForm.controls['celular']?.errors?.['minlength']">Minimo 10 numeros</mat-error>
+      <mat-error *ngIf="editForm.controls['celular']?.errors?.['maxlength']">Maximo 13 caracteres</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Correo</mat-label>
+      <input matInput formControlName="correo" placeholder="Email" type="email">
+      <mat-error *ngIf="editForm.controls['correo']?.errors?.['email']">Debe ser un email valido</mat-error>
+      <mat-error *ngIf="editForm.controls['correo']?.errors?.['required']">El email es requerido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Linkedin</mat-label>
+      <input matInput formControlName="linkedin" placeholder="Linkedin" type="text">
+      <mat-error *ngIf="editForm.controls['linkedin']?.errors?.['required']">El linkedin es requerido</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field class="form-field-row">
+      <mat-label>GitHub</mat-label>
+      <input matInput formControlName="github" placeholder="GitHub" type="text">
+      <mat-error *ngIf="editForm.controls['github']?.errors?.['required']">El github es requerido</mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close color="warn">Cerrar</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="editForm.invalid">Guardar</button>
+  </mat-dialog-actions>
+
+</form>

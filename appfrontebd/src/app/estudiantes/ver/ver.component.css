@@ -1,0 +1,20 @@
+.estudiante_info {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.estudiante_info h2 {
+  margin-top: 0px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.estudiante_info p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: #333;
+}
+

@@ -1,0 +1,70 @@
+<form [formGroup]="consultaForm" class="info-container">
+    <mat-form-field class="form-field-row">
+        <mat-label>Seleccione el curso</mat-label>
+        <mat-select formControlName="curso">
+            <mat-option *ngFor="let curso of cursos" [value]="curso.curso_id">
+                {{curso.curso_nombre}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="button" (click)="consultarEstudiantes()">Consultar</button>
+</form>
+
+<div class="info-container">
+    <p>Cupo del curso: {{ cupoCurso }}</p>
+    <p>Estudiantes Inscritos: {{ estudiantesActivos.length || 0 }}</p>
+    <button mat-raised-button color="primary" *ngIf="!cupoLleno" type="button"
+        (click)="registrarEstudiantes()">Registrar Estudiantes</button>
+</div>
+
+<div class="info-tabla">
+    <mat-table #table [dataSource]="estudiantes" *ngIf="estudiantes.length > 0; else noEstudiantes">
+        <ng-container matColumnDef="inscripcion_id">
+            <mat-header-cell *matHeaderCellDef> ID de Inscripción</mat-header-cell>
+            <mat-cell *matCellDef="let estudiante"> {{estudiante.inscripcion_id}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="estudiante_id">
+            <mat-header-cell *matHeaderCellDef> ID del Estudiante</mat-header-cell>
+            <mat-cell *matCellDef="let estudiante"> {{estudiante.estudiante_id}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="estudiante_nombres">
+            <mat-header-cell *matHeaderCellDef> Nombre del Estudiante</mat-header-cell>
+            <mat-cell *matCellDef="let estudiante"> {{estudiante.estudiante_nombres}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="estudiante_apellidos">
+            <mat-header-cell *matHeaderCellDef> Apellido del Estudiante</mat-header-cell>
+            <mat-cell *matCellDef="let estudiante"> {{estudiante.estudiante_apellidos}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="inscripcion_fechaCreacion">
+            <mat-header-cell *matHeaderCellDef> Fecha de inscripción</mat-header-cell>
+            <mat-cell *matCellDef="let estudiante"> {{estudiante.inscripcion_fechaCreacion}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="inscripcion_estado">
+            <mat-header-cell *matHeaderCellDef> Estado de inscripción</mat-header-cell>
+            <mat-cell *matCellDef="let estudiante"> {{estudiante.inscripcion_estado}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let estudiante">
+                <button mat-icon-button matTooltip="Inhabilitar estudiante"
+                    (click)="inhabilitarEstudiante(estudiante.inscripcion_id)"
+                    *ngIf="estudiante.inscripcion_estado == 1">
+                    <mat-icon fontIcon="person_remove" style="color: red"></mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let estudiante; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <ng-template #noEstudiantes>
+        <p>No hay estudiantes inscritos en este curso</p>
+    </ng-template>
+</div>

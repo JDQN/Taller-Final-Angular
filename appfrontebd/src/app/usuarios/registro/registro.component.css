@@ -1,0 +1,21 @@
+mat-card {
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 19px;
+}
+
+.registro-from {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.registro-from-filed {
+  margin-top: 3px;
+}
+
+.botonesRegistro {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}

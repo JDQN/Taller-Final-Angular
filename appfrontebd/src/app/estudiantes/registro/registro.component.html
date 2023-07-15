@@ -1,0 +1,89 @@
+<h2 mat-dialog-title>Registro de Estudianbtes</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="registroForm" (submit)="onSubmit()">
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Tipo de Identificacion</mat-label>
+      <mat-select formControlName="tipoIdentificacion">
+        <mat-option *ngFor="let tipo of tipoIdentificacion" [value]="tipo.value">
+          {{tipo.viewValue}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="registroForm.controls['tipoIdentificacion']?.errors?.['required']">El tipo de identificacion
+        es requerido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Identificacion</mat-label>
+      <input matInput formControlName="numeroIdentificacion" placeholder="Numero de Identificacion">
+
+      <mat-error *ngIf="registroForm.controls['numeroIdentificacion']?.errors?.['required']">El numero de identificacion
+        es requerido</mat-error>
+
+      <mat-error *ngIf="registroForm.controls['numeroIdentificacion']?.errors?.['minlength']">Debe d etener al menos 6
+        caracteres</mat-error>
+
+      <mat-error *ngIf="registroForm.controls['numeroIdentificacion']?.errors?.['pattern']">Solo s eaceptan
+        numeros</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Nombres</mat-label>
+      <input matInput formControlName="nombres" placeholder="Nombres" type="text">
+      <mat-error *ngIf="registroForm.controls['nombres']?.errors?.['required']">El nombre es requerido</mat-error>
+      <mat-error *ngIf="registroForm.controls['nombres']?.errors?.['minlength']">Minimo 3 caracteres</mat-error>
+      <mat-error *ngIf="registroForm.controls['nombres']?.errors?.['maxlength']">Maximo 30 caracteres</mat-error>
+      <mat-error *ngIf="registroForm.controls['nombres']?.errors?.['pattern']">Solo se aceptan letras</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Apellidos</mat-label>
+      <input matInput formControlName="apellidos" placeholder="Apellidos" type="text">
+      <mat-error *ngIf="registroForm.controls['apellidos']?.errors?.['required']">El apellido es requerido</mat-error>
+      <mat-error *ngIf="registroForm.controls['apellidos']?.errors?.['minlength']">Minimo 3 caracteres</mat-error>
+      <mat-error *ngIf="registroForm.controls['apellidos']?.errors?.['maxlength']">Maximo 30 caracteres</mat-error>
+      <mat-error *ngIf="registroForm.controls['apellidos']?.errors?.['pattern']">Solo se aceptan letras</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Celular</mat-label>
+      <input matInput formControlName="celular" placeholder="Numero Celular" type="number">
+      <mat-error *ngIf="registroForm.controls['celular']?.errors?.['required']">El celular es requerido</mat-error>
+      <mat-error *ngIf="registroForm.controls['celular']?.errors?.['minlength']">Minimo 10 numeros</mat-error>
+      <mat-error *ngIf="registroForm.controls['celular']?.errors?.['maxlength']">Maximo 13 caracteres</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Correo</mat-label>
+      <input matInput formControlName="correo" placeholder="Email" type="email">
+      <mat-error *ngIf="registroForm.controls['correo']?.errors?.['email']">Debe ser un email valido</mat-error>
+      <mat-error *ngIf="registroForm.controls['correo']?.errors?.['required']">El email es requerido</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Linkedin</mat-label>
+      <input matInput formControlName="linkedin" placeholder="Linkedin" type="text">
+      <mat-error *ngIf="registroForm.controls['linkedin']?.errors?.['required']">El linkedin es requerido</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field class="form-field-row">
+      <mat-label>GitHub</mat-label>
+      <input matInput formControlName="github" placeholder="GitHub" type="text">
+      <mat-error *ngIf="registroForm.controls['github']?.errors?.['required']">El github es requerido</mat-error>
+    </mat-form-field>
+
+
+    <mat-dialog-actions>
+      <button mat-raised-button mat-dialog-close color="warn">Cerrar</button>
+      <button mat-raised-button color="primary" type="submit">Guardar</button>
+    </mat-dialog-actions>
+
+  </form>
+</mat-dialog-content>

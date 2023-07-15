@@ -1,0 +1,17 @@
+.btn-cerrarSesion {
+  margin-left: 80%;
+  padding: 10px 20px;
+  color: white;
+}
+
+.btm-menu {
+  margin-left: 2%;
+  padding: 10px 20px;
+  color: white;
+  font-size: 19px;
+}
+
+.btm-menu:hover {
+  background-color: #a283ff;
+  color: white;
+}

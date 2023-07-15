@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>Información del Estudiante</h2>
+<mat-dialog-content>
+  <div *ngIf="estudianteData" class="estudiante-info">
+    <p> ID: {{ estudianteData.estudiante_id }}</p>
+    <p> Identificación: {{ estudianteData.estudiante_numeroIdentificacion }}</p>
+    <p> Nombre: {{ estudianteData.estudiante_nombres }}</p>
+    <p> Apellidos: {{ estudianteData.estudiante_apellidos }}</p>
+    <p> Correo: {{ estudianteData.estudiante_correo }}</p>
+    <p> Celular: {{ estudianteData.estudiante_celular }}</p>
+    <p> LinkedIn: {{ estudianteData.estudiante_linkedin }}</p>
+    <p> Github: {{ estudianteData.estudiante_github }}</p>
+    <p> Fecha de creación: {{ estudianteData.estudiante_fechaCreacion }}</p>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close="">Cerrar</button>
+</mat-dialog-actions>

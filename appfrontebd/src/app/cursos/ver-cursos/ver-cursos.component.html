@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Información del curso</h2>
+<mat-dialog-content>
+  <div *ngIf="cursoData" class="curso-info">
+    <p> Nombre: {{ cursoData.curso_nombre }}</p>
+    <p> Descripción: {{ cursoData.curso_descripcion }}</p>
+    <p> Cupo: {{ cursoData.curso_cupo }}</p>
+    <p> Horario: {{ cursoData.curso_horario }}</p>
+    <p> Profesor: {{ cursoData.curso_profesor }}</p>
+    <p> Estado: {{ cursoData.curso_estado }}</p>
+    <p> Fecha de creación: {{ cursoData.curso_fechaCreacion }}</p>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close="">Cerrar</button>
+</mat-dialog-actions>

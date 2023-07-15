@@ -1,0 +1,25 @@
+.div_botones {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.div_table {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.contenedor {
+  margin-top: 10px;
+  margin-bottom: 6px;
+  margin-left: 6px;
+  margin-right: 6px;
+  padding: 3px;
+}

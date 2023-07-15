@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <span>
+    <img src="../../../favicon.ico" alt="Logo">
+  </span>
+  <mat-menu #appMenu="matMenu">
+    <button mat-menu-item routerLink="/main/consultar-estudiantes">Consulta Estudiantes</button>
+    <button mat-menu-item routerLink="/main/consultar-cursos">Consulta Cursos</button>
+    <button mat-menu-item routerLink="/main/inscripcion">Inscripción</button>
+  </mat-menu>
+  <button class="btm-menu" mat-button [matMenuTriggerFor]="appMenu">Menu</button>
+  <button mat-raised-button color="warn" class="btn-cerrarSesion" mat-button *ngIf="isLoggedIn()"
+    (click)="logout()">Cerrar sesión</button>
+</mat-toolbar>
+<div class="contenido">
+  <router-outlet></router-outlet>
+</div>
